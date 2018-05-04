@@ -2,7 +2,6 @@
 
             @section('content')
             <div class="container mt-5"></div>
-            <a class="btn btn-primary btn-lg active float-right" href="/posts/create" role="button">Create Post <span class="sr-only">(current)</span></a>
                            <h1>Posts</h1>
                                 @if(count($posts)>0)
                                     @foreach($posts as $post)
