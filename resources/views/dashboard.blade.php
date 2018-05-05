@@ -18,14 +18,17 @@
                             <table class="table table-striped">
                                 <tr>
                                     <th>Title</th>
-                                    <th></th>
-                                    <th></th>
-                                    <th></th>
                                 </tr>
                                 @foreach($posts as $post)
                                     <tr>
-                                        <th>{{$post->title}}</th>
-                                    <th><a href="/posts/{{$post->id}}/edit" class="btn btn-default">Edit</a></th>
+                                        <th><a href="/posts/{{$post->id}}">{{$post->title}}</a></th>
+                                    <th>
+                                        {!!Form::open(['action' => ['PostController@destroy', $post->id], 'method' => 'POST', 'class' => 'float-right ml-2'])!!}
+                                        {{Form::hidden('_method','DELETE')}}
+                                        {{Form::submit('Delete', ['class'=>'btn btn-danger btn-lg active float-right'])}}
+                                        {!!Form::close()!!}
+                                    <a class="btn btn-success btn-lg active float-right" href="/posts/{{$post->id}}/edit" role="button">Edit <span class="sr-only">(current)</span></a>
+                                    </th>
                                     </tr>
                                 @endforeach
                             </table>
