@@ -9,7 +9,7 @@
                         {!!$post->body!!}
                     </div>
                     <hr>
-                    <small>Written on: {{$post->created_at}}</small>
+                    <small class="badge badge-pill badge-primary">Written on: {{$post->created_at}}</small>
                @if(!Auth::guest())     
                     @if(Auth::user()->id==$post->user_id)
                         <a class="btn btn-success btn-lg active float-right ml-2" href="/posts/{{$post->id}}/edit" role="button">Edit <span class="sr-only">(current)</span></a>
